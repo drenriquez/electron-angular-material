@@ -1,6 +1,8 @@
 {
   "name": "electronstart",
-  "version": "0.0.0",
+  "author":"Enrico Notaro",
+  "version": "2.0.0",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
