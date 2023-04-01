@@ -6,7 +6,7 @@ import { ElectronService } from 'ngx-electron-fresh';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'electron-angular-material';
+  title = 'electronstart';
 
   constructor(private electronService: ElectronService){
     this.electronService.ipcRenderer.on('rispostaIpc',()=>{

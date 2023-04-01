@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "electron-angular-material": {
+    "electronstart": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/electron-angular-material",
+            "outputPath": "dist/electronstart",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "electron-angular-material:build:production"
+              "browserTarget": "electronstart:build:production"
             },
             "development": {
-              "browserTarget": "electron-angular-material:build:development"
+              "browserTarget": "electronstart:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "electron-angular-material:build"
+            "browserTarget": "electronstart:build"
           }
         },
         "test": {
@@ -104,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": "5c38e119-937d-4917-9dfd-50fb718f2cec"
+    "analytics": "cb6b2cb1-5d56-46b1-b4ef-cb5d3043a538"
   }
 }

@@ -1,5 +1,3 @@
-//import * as path from 'path';
-
 const {app, BrowserWindow, ipcMain}=require('electron');
 const url=require('url');
 const path=require('path');
@@ -17,7 +15,7 @@ const createWindow=()=>{
   })
   mainWindow.loadURL(
     url.format({
-      pathname:path.join(__dirname,'dist/electron-angular-material/index.html'),
+      pathname:path.join(__dirname,'dist/electronstart/index.html'),
       protocol:"file",
       slashes:true,
 
