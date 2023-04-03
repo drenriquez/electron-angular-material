@@ -1,10 +1,14 @@
-# ElectronAngularMaterial
+# Electron-Angular-Angular/Material
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
+## Start
+
+Run `npm start`, "ng build --base-href ./ && electron-forge start",
+
 ## Development server
 
-Run `ng start` electron-forge start. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run electron:serve`. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,7 +16,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `make`  for electron-forge make  the project. The build artifacts will be stored in the `out/` directory.
+Run `npm run make`  for electron-forge make  the project. The build artifacts will be stored in the `out/` directory.
 
 ## Running unit tests
 

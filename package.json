@@ -6,14 +6,17 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --base-href ./ && electron .",
+    "start2": "ng build --base-href ./ && electron .",
+    "start": "ng build --base-href ./ && electron-forge start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev": "set NODE_ENV=development && npm run electron:serve",
     "electron:serve": "concurrently \"npm run start:angular\" \"wait-on http://localhost:4200 && npm run electron\"",
     "start:angular": "ng serve",
-    "electron": "electron ."
+    "electron": "electron .",
+    "package": "electron-forge package",
+    "make": "ng build --base-href ./ && electron-forge make"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +39,7 @@
     "@angular-devkit/build-angular": "^15.2.4",
     "@angular/cli": "~15.2.4",
     "@angular/compiler-cli": "^15.2.0",
+    "@electron-forge/cli": "^6.1.0",
     "@types/jasmine": "~4.3.0",
     "concurrently": "^8.0.1",
     "electron": "^23.2.1",
