@@ -30,6 +30,10 @@ table{
    height: 100%;
    width: 15%;
    background-color: rgba(0, 0, 0, 0.25);
+   min-width: 130px;
+}
+#sidebar ul{
+  vertical-align: middle;
 }
 #sidebar ul li {
   list-style-type: none;

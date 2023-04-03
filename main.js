@@ -1,31 +1,53 @@
-const {app, BrowserWindow, ipcMain}=require('electron');
-const url=require('url');
-const path=require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
+const url = require('url');
+const electronReload = require('electron-reloader');
 
-let mainWindow
+let mainWindow;
 
-const createWindow=()=>{
-  mainWindow=new BrowserWindow({
-    width:1000,
-    height:800,
-    webPreferences:{
-      nodeIntegration:true,
-      contextIsolation:false,
-    }
-  })
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1000,
+    height: 800,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+
   mainWindow.loadURL(
     url.format({
-      pathname:path.join(__dirname,'dist/electronstart/index.html'),
-      protocol:"file",
-      slashes:true,
-
+      pathname: path.join(__dirname, 'dist/electronstart/index.html'),
+      protocol: 'file',
+      slashes: true,
     })
-  )
-  mainWindow.webContents.openDevTools()
+  );
+
+  // Apri il DevTools solo in modalità di sviluppo
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
 }
-app.whenReady().then(()=>{
-  createWindow()
-})
+
+app.whenReady().then(() => {
+  createWindow();
+
+  // Abilita il reload automatico solo in modalità di sviluppo
+  if (process.env.NODE_ENV === 'development') {
+    electronReload(__dirname, {
+      electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+    });
+  }
+});
+
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('activate', function () {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
+
 ipcMain.on('provaIpc',()=>{
   console.log('********provaIpc invocata**********');
   mainWindow.webContents.send('rispostaIpc');
