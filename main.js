@@ -13,6 +13,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    icon: __dirname + '/src/assets/icons/favicon.ico',
   });
 
   mainWindow.loadURL(
